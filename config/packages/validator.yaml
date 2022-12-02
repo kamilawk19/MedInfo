@@ -11,3 +11,12 @@ when@test:
     framework:
         validation:
             not_compromised_password: false
+
+App\Entity\User:
+    properties:
+        first_name:
+            - NotBlank: ~
+        last_name:
+            - NotBlank: ~
+        password:
+            - NotBlank: ~

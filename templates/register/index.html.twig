@@ -1,20 +1,96 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegisterController!{% endblock %}
+{% block title %}MedInfo- Rejestracja{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# Menu #}
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <!--<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>-->
+                <img class="bi me-2" src="{{ asset('images/logo_vol2.png')}}" alt="Logo" width="45" height="45">
+                <span class="fs-4">MedInfo</span>
+            </a>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'E:/laragon/www/MedInfo/src/Controller/RegisterController.php'|file_link(0) }}">src/Controller/RegisterController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'E:/laragon/www/MedInfo/templates/register/index.html.twig'|file_link(0) }}">templates/register/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" class="nav-link px-2 link-dark">Strona główna</a></li>
+                <li><a href="#Funkcje" class="nav-link px-2 link-dark">Funkcje</a></li>
+                <li><a href="#Cennik" class="nav-link px-2 link-dark">Cennik</a></li>
+                <li><a href="#Kontakt" class="nav-link px-2 link-dark">Kontakt</a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <a href="/login"><button type="button" class="btn btn-outline-secondary me-2">Logowanie</button></a>
+                <a href="/register"><button type="button" class="btn btn-link">Rejestracja</button></a>
+            </div>
+        </header>
+    </div>
+    {# End-Menu #}
+
+    {# Content #}
+    <div class="container">
+        <div class="row g-5 py-5 justify-content-center">
+            <div class="col-xl-6 col-lg-6 col-md-8 ">
+                <h2 class="text-center mb-4 text-primary primary-text-color">Rejestracja</h2>
+                <form>
+                    <div class="mb-3 row">
+                        <div class="col">
+                        <label for="firstname" class="form-label">Imię</label>
+                        <input type="text" class="form-control border border-primary" id="firstname" aria-describedby="firstNameHelp" name="_firstname">
+                        </div>
+                        <div class="col">
+                            <label for="secondname" class="form-label">Drugie imię</label>
+                            <input type="text" class="form-control border border-primary" id="secondname" aria-describedby="secondNameHelp" name="_secondname">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Nazwisko</label>
+                        <input type="text" class="form-control border border-primary" id="lastname" aria-describedby="lastnameHelp" name="_lastname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nazwa użytkownika</label>
+                        <input type="text" class="form-control border border-primary" id="username" aria-describedby="usernameHelp" name="_username">
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label for="password1" class="form-label">Hasło</label>
+                            <input type="text" class="form-control border border-primary" id="password1" aria-describedby="passwordHelp" name="_password1">
+                        </div>
+                        <div class="col">
+                            <div class="col">
+                                <label for="password2" class="form-label">Powtórz hasło</label>
+                                <input type="text" class="form-control border border-primary" id="password2" aria-describedby="passwordreapetHelp" name="_password2">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="_target_path" value="/login"/>
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-link" type="submit">Zarejestruj</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {# End-Content #}
+
+    {# Footer #}
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img class="bi" src="{{ asset('images/logo_vol2.png')}}" alt="Logo" width="30" height="30">
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2022 MedInfo. All rights reserved</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><img class="bi" src="{{ asset('images/Twitter.png')}}" alt="Logo" width="24" height="24"></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><img class="bi" src="{{ asset('images/Facebook.png')}}" alt="Logo" width="24" height="24"></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><img class="bi" src="{{ asset('images/Instagram.png')}}" alt="Logo" width="24" height="24"></a></li>
+            </ul>
+        </footer>
+    </div>
+    {# End-Footer #}
+
 {% endblock %}
