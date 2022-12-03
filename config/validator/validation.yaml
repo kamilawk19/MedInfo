@@ -1,0 +1,19 @@
+App\Entity\User:
+  properties:
+    username:
+      - NotBlank: ~
+      - Length:
+          min: 6
+          max: 15
+          minMessage: 'Your first name must be at least {{ limit }} characters long'
+          maxMessage: 'Your first name cannot be longer than {{ limit }} characters'
+          groups: [registration, login]
+    password:
+      - Regex:
+          pattern: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,15}$/'
+          message: 'Hasło musi mieć od 6 do 15 znaków, zawierać 1 dużą i małą literę oraz 1 cyfrę'
+          groups: [registration, login]
+    First_Name:
+      - NotBlank: { groups: [registration, login] }
+    Last_Name:
+      - NotBlank: { groups: [registration, login] }
