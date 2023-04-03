@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+    {#{{ form_widget(form) }}}#}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Name)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.International_Name)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Description)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Quantity)}}
+        </div>
+    </div>
+    <div class="row inline-date-div">
+        <div class="col">
+            {{form_row(form.Exp_Date)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Drug_List_N)}}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <button class="btn btn-primary">{{ button_label|default('Dodaj') }}</button>
+        </div>
+    </div>
+</div>
+<br>
+    
+{{ form_end(form) }}

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -43,6 +45,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?bool $is_active = null;
+
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Address $ID_Address = null;
+
+    #[ORM\OneToMany(mappedBy: 'ID_Controller', targetEntity: LastPharmacySupplyCheck::class)]
+    private Collection $lastPharmacySupplyChecks;
+
+    #[ORM\Column(length: 8)]
+    private ?string $Licensure_Number = null;
+
+    public function __construct()
+    {
+        $this->lastPharmacySupplyChecks = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -184,6 +200,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsActive(bool $is_active): self
     {
         $this->is_active = $is_active;
+
+        return $this;
+    }
+
+    public function getIDAddress(): ?Address
+    {
+        return $this->ID_Address;
+    }
+
+    public function setIDAddress(?Address $ID_Address): self
+    {
+        $this->ID_Address = $ID_Address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LastPharmacySupplyCheck>
+     */
+    public function getLastPharmacySupplyChecks(): Collection
+    {
+        return $this->lastPharmacySupplyChecks;
+    }
+
+    public function addLastPharmacySupplyCheck(LastPharmacySupplyCheck $lastPharmacySupplyCheck): self
+    {
+        if (!$this->lastPharmacySupplyChecks->contains($lastPharmacySupplyCheck)) {
+            $this->lastPharmacySupplyChecks->add($lastPharmacySupplyCheck);
+            $lastPharmacySupplyCheck->setIDController($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLastPharmacySupplyCheck(LastPharmacySupplyCheck $lastPharmacySupplyCheck): self
+    {
+        if ($this->lastPharmacySupplyChecks->removeElement($lastPharmacySupplyCheck)) {
+            // set the owning side to null (unless already changed)
+            if ($lastPharmacySupplyCheck->getIDController() === $this) {
+                $lastPharmacySupplyCheck->setIDController(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLicensureNumber(): ?string
+    {
+        return $this->Licensure_Number;
+    }
+
+    public function setLicensureNumber(string $Licensure_Number): self
+    {
+        $this->Licensure_Number = $Licensure_Number;
 
         return $this;
     }

@@ -14,6 +14,7 @@ class HomeController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'page_name' => 'Strona główna',
         ]);
     }
 }

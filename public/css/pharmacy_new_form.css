@@ -1,0 +1,15 @@
+.col label{
+    width:25%;
+}
+.row{
+    margin: 5px 0;
+}
+#pharmacy_supply_Exp_Date{
+    float: left;
+}
+.inline-date-div label{
+    float: left;
+}
+a{
+    text-decoration: none;
+}

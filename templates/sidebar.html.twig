@@ -1,0 +1,63 @@
+<div class="flex-shrink-0 p-3 h-100 bg-light col-2 shadow" style="float:left;">
+    {% if app.user %}
+    {# user is logged in #}
+    <a href="/home" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <!--<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>-->
+        <img class="bi me-2" src="{{ asset('images/logo_vol2.png')}}" alt="Logo" width="45" height="45">
+        <span class="fs-5 fw-bold">MedInfo</span>
+    </a>
+    {% else %}
+    {# user is NOT logged in #}
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <!--<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>-->
+        <img class="bi me-2" src="{{ asset('images/logo_vol2.png')}}" alt="Logo" width="45" height="45">
+        <span class="fs-5 fw-bold">MedInfo</span>
+    </a>
+    {% endif %}
+    <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                Apteka
+            </button>
+            <div class="collapse" id="home-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/pharmacysupply" class="link-dark rounded">Stan apteki</a></li>
+                    <li><a href="#" class="link-dark rounded">Aktualizacja stanu</a></li>
+                    <li><a href="#" class="link-dark rounded">Raporty</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                Zlecenia
+            </button>
+            <div class="collapse show" id="dashboard-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Kalendarz</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                Pacjenci
+            </button>
+            <div class="collapse show" id="orders-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Dane pacjentów</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Twoje konto
+            </button>
+            <div class="collapse" id="account-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/user/settings" class="link-dark rounded">Ustawienia</a></li>
+                    <li><a href="/logout" class="link-dark rounded">Wyloguj się</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

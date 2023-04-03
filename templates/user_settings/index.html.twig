@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="../css/home.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user_settings.css" />
+{% endblock %}
+
+{% block title %}{{page_name}}{% endblock %}
+
+{% block body %}
+
+{{ include('sidebar.html.twig') }}
+
+<div class="flex-shrink-0 p-9 h-100 col-10 custom-div overflow-auto">
+    <h1>{{page_name}}</h1>
+
+    <div class="container space-100">
+        <div class="row row-cols-5">
+            <h5 class="col margin-bot-20">Dane osobowe</h5>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Imię:</div>
+            <div class="col">{{ app.user.getFirstName() }}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Drugie imię:</div>
+            <div class="col">{{ app.user.getSecondName() }}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Nazwisko:</div>
+            <div class="col">{{ app.user.getLastName() }}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Nr wykonywania zawodu:</div>
+            <div class="col">{{app.user.getLicensureNumber() }}</div>
+        </div>
+        <div class="row row-cols-5">
+            <h5 class="col margin-20">Adres</h5>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Kraj:</div>
+            <div class="col">{{country}}</div>
+            <div class="col">Województwo:</div>
+            <div class="col">{{voivodeship}}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Miasto:</div>
+            <div class="col">{{city}}</div>
+            <div class="col">Kod pocztowy:</div>
+            <div class="col">{{zipcode}}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Ulica:</div>
+            <div class="col">{{street}}</div>
+            <div class="col">Nr mieszkania i budynku:</div>
+            <div class="col">{{buildingNumber}}/{{apartmentNumber}}</div>
+        </div>
+        <div class="row row-cols-5">
+            <h5 class="col margin-20">Konto</h5>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Login:</div>
+            <div class="col">{{ app.user.getUsername() }}</div>
+        </div>
+        <div class="row row-cols-5">
+            <div class="col">Data ostatniej zmiany hasła:</div>
+            <div class="col">{{ userDate }}</div>
+        </div>
+        <br>
+        <div class="row justify-content-center justify-content-md-center">
+            <div class="col-2">
+                <a href="#"><button type="button" class="btn btn-link px-4 me-md-2">Zmień hasło</button></a>
+            </div>
+            <div class="col-2">
+                <a href="#"><button type="button" class="btn btn-link px-4 me-md-2" style="background-color: #6082B6 !important;">Zmień dane</button></a>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
