@@ -13,3 +13,8 @@
 a{
     text-decoration: none;
 }
+
+.fit-delete-btn{
+    width: 61%;
+    float: left;
+}

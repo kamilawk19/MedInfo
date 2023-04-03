@@ -1,46 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PharmacySupply{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="../css/home.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../css/pharmacy_supply.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pharmacy_show.css" />
+{% endblock %}
+
+{% block title %}{{page_name}}{% endblock %}
 
 {% block body %}
-    <h1>PharmacySupply</h1>
 
-    <table class="table">
+    {{ include('sidebar.html.twig') }}
+
+
+<div class="flex-shrink-0 p-9 h-100 col-10 custom-div overflow-auto">
+    <h1>{{page_name}}</h1>
+
+    <a href="{{ path('app_pharmacy_supply_index') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
+    <br>
+
+    <table class="table table-bordered border-secondary">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ pharmacy_supply.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
+                <th class="table-primary">Name</th>
                 <td>{{ pharmacy_supply.Name }}</td>
             </tr>
             <tr>
-                <th>International_Name</th>
+                <th class="table-primary">International_Name</th>
                 <td>{{ pharmacy_supply.InternationalName }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th class="table-primary">Description</th>
                 <td>{{ pharmacy_supply.Description }}</td>
             </tr>
             <tr>
-                <th>Quantity</th>
+                <th class="table-primary">Quantity</th>
                 <td>{{ pharmacy_supply.Quantity }}</td>
             </tr>
             <tr>
-                <th>Exp_Date</th>
+                <th class="table-primary">Exp_Date</th>
                 <td>{{ pharmacy_supply.ExpDate ? pharmacy_supply.ExpDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Drug_List_N</th>
+                <th class="table-primary">Drug_List_N</th>
                 <td>{{ pharmacy_supply.DrugListN ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_pharmacy_supply_index') }}">back to list</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <a href="{{ path('app_pharmacy_supply_edit', {'id': pharmacy_supply.id}) }}"><button class="btn btn-primary">Edycja</button></a>
+        </div>
+        <div class="col-6">
+            {{ include('pharmacy_supply/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+    
 
-    <a href="{{ path('app_pharmacy_supply_edit', {'id': pharmacy_supply.id}) }}">edit</a>
-
-    {{ include('pharmacy_supply/_delete_form.html.twig') }}
+    
+</div>
 {% endblock %}

@@ -10,6 +10,7 @@ html {
 .custom-div{
     padding-top: 30px;
     padding-left: 30px;
+    padding-right: 30px;
     float: right;
 }
 
