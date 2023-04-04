@@ -23,27 +23,27 @@
     <table class="table table-bordered border-secondary">
         <tbody>
             <tr>
-                <th class="table-primary">Name</th>
+                <th class="table-primary">Nazwa</th>
                 <td>{{ pharmacy_supply.Name }}</td>
             </tr>
             <tr>
-                <th class="table-primary">International_Name</th>
+                <th class="table-primary">Nazwa międzynarodowa</th>
                 <td>{{ pharmacy_supply.InternationalName }}</td>
             </tr>
             <tr>
-                <th class="table-primary">Description</th>
+                <th class="table-primary">Opis</th>
                 <td>{{ pharmacy_supply.Description }}</td>
             </tr>
             <tr>
-                <th class="table-primary">Quantity</th>
+                <th class="table-primary">Ilość</th>
                 <td>{{ pharmacy_supply.Quantity }}</td>
             </tr>
             <tr>
-                <th class="table-primary">Exp_Date</th>
+                <th class="table-primary">Data ważności</th>
                 <td>{{ pharmacy_supply.ExpDate ? pharmacy_supply.ExpDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th class="table-primary">Drug_List_N</th>
+                <th class="table-primary">Lista N</th>
                 <td>{{ pharmacy_supply.DrugListN ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>

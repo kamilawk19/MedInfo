@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LastPharmacySupplyCheck{% endblock %}
+
+{% block body %}
+    <h1>Edit LastPharmacySupplyCheck</h1>
+
+    {{ include('last_pharmacy_supply_check/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_last_pharmacy_supply_check_index') }}">back to list</a>
+
+    {{ include('last_pharmacy_supply_check/_delete_form.html.twig') }}
+{% endblock %}

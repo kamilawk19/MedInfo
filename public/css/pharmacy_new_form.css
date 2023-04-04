@@ -18,3 +18,7 @@ a{
     width: 61%;
     float: left;
 }
+
+#last_pharmacy_supply_check_Last_Supply_Date{
+    float: left;
+}
