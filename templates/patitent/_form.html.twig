@@ -1,0 +1,71 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{form_row(form.PESEL)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Document_Name)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Document_Number)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.First_Name)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Second_Name)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Last_Name)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Sex)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Dialing_Code)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Phone_Number)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Contact_Dialing_Code)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Contact_Phone_Number)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Additional_info)}}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-7">
+            <button class="btn btn-primary">{{ button_label|default('Dodaj') }}</button>
+        </div>
+    </div>
+    </div>
+{{ form_end(form) }}

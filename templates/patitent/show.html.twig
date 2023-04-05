@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="../css/home.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../css/pharmacy_supply.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pharmacy_show.css" />
+{% endblock %}
+
+{% block title %}{{page_name}}{% endblock %}
+
+{% block body %}
+
+    {{ include('sidebar.html.twig') }}
+
+<div class="flex-shrink-0 p-9 h-100 col-10 custom-div overflow-auto">
+
+    <h1>{{page_name}}</h1>
+
+    <a href="{{ path('app_patitent_index') }}">
+    <h6><i class="bi bi-arrow-left"></i> Powrót</h6>
+    </a>
+    <br>
+
+    <table class="table">
+        <tbody>
+            {% if patitent.PESEL != null %}
+            <tr>
+                <th class="col-6">PESEL</th>
+                <td>{{ patitent.PESEL }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <th class="col-6">Nazwa dokumentu</th>
+                <td>{{ patitent.DocumentName }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Numer dokumentu</th>
+                <td>{{ patitent.DocumentNumber }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th class="col-6">Pierwsze imię</th>
+                <td>{{ patitent.FirstName }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Drugie imię</th>
+                <td>{{ patitent.SecondName }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Nazwisko</th>
+                <td>{{ patitent.LastName }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Płeć</th>
+                {% if patitent.Sex == 'M' or patitent.Sex == 'm' %}
+                <td>Mężczyzna</td>
+                {% else %}
+                <td>Kobieta</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th class="col-6">Kod kierunkowy</th>
+                <td>{{ patitent.DialingCode }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Numer pacjenta</th>
+                <td>{{ patitent.PhoneNumber }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Kod kierunkowy kontaktu pacjenta</th>
+                <td>{{ patitent.ContactDialingCode }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Numer kontaktu pacjenta</th>
+                <td>{{ patitent.ContactPhoneNumber }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Kraj</th>
+                <td>{{patitent.getIDAddress().getCountry()}}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Województwo</th>
+                <td>{{ patitent.getIDAddress().getVoivodeship() }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Miejsce zameldowania</th>
+                <td>{{patitent.getIDAddress().getStreet()}} {{patitent.getIDAddress().getBuildingNumber()}}
+                {% if patitent.getIDAddress().getApartmentNumber() != null %}
+                /{{patitent.getIDAddress().getApartmentNumber()}}
+                {% endif %}
+                {{patitent.getIDAddress().getZIPCode()}} {{patitent.getIDAddress().getCity()}}
+                </td>
+            </tr>
+            <tr>
+                <th class="col-6">Sczegółowe informacje</th>
+                <td>{{ patitent.AdditionalInfo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <a href="{{ path('app_patitent_edit', {'id': patitent.id}) }}"><button class="btn btn-primary">Edycja</button></a>
+        </div>
+        <div class="col-6">
+            {{ include('patitent/_delete_form.html.twig') }}
+    </div>
+</div>
+<br>
+</div>
+{% endblock %}

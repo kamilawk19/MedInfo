@@ -12,7 +12,12 @@
 
 <div class="p-9 h-100 col-10 custom-div overflow-auto">
     <h1>{{page_name}}</h1>
-    <h5 > Wybierz z menu widok. </h5>
+
+    {% if is_granted("ROLE_USER") %}
+        <h5>Cześć {{ app.user.getFirstName() }}, wybierz z menu widok. </h5>
+    {% else %}
+        <h5>Wybierz z menu widok. </h5>
+    {% endif %}
 </div>
     
 {% endblock %}

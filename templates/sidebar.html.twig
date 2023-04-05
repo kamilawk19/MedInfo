@@ -16,34 +16,51 @@
     {% endif %}
     <ul class="list-unstyled ps-0">
         <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+            <button class="btn btn-toggle align-items-center rounded " data-bs-toggle="collapse" data-bs-target="#pharmacy-collapse" aria-expanded="true">
                 Apteka
             </button>
-            <div class="collapse" id="home-collapse" style="">
+            <div class="collapse show" id="pharmacy-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li><a href="/pharmacysupply" class="link-dark rounded">Stan apteki</a></li>
-                    <li><a href="/supplycheck" class="link-dark rounded">Spis kontrol stanu apteki</a></li>
+                    <li><a href="/supplycheck" class="link-dark rounded">Spis kontroli stanu apteki</a></li>
                     <li><a href="/supplycheck/new" class="link-dark rounded">Dodanie kontroli stanu</a></li>
                 </ul>
             </div>
         </li>
         <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#zlecenia-collapse" aria-expanded="false">
                 Zlecenia
             </button>
-            <div class="collapse show" id="dashboard-collapse" style="">
+            <div class="collapse" id="zlecenia-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Kalendarz</a></li>
+                    <li><a href="#" class="link-dark rounded">Zlecenia</a></li>
+                </ul>
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Dodaj zlecenia</a></li>
                 </ul>
             </div>
         </li>
         <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#zabiegi-collapse" aria-expanded="false">
+                Zaplanowane zabiegi
+            </button>
+            <div class="collapse" id="zabiegi-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Kalendarz</a></li>
+                </ul>
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Zaplanowane zabiegi</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#patients-collapse" aria-expanded="false">
                 Pacjenci
             </button>
-            <div class="collapse show" id="orders-collapse" style="">
+            <div class="collapse" id="patients-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Dane pacjentów</a></li>
+                    <li><a href="/patients" class="link-dark rounded">Spis pacjentów</a></li>
+                    <li><a href="/patients/new" class="link-dark rounded">Nowy pacjent</a></li>
                 </ul>
             </div>
         </li>
