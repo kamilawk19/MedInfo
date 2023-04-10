@@ -9,11 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Address;
 use App\Repository\AddressRepository;
 
+#[IsGranted('ROLE_USER')]
 class UserSettingsController extends AbstractController
 {
     #[Route('/user/settings', name: 'app_user_settings')]
     public function index(AddressRepository $addressRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $Date = $user->getLastPasswordChange();
         $userDate = $Date->format('d/m/Y');

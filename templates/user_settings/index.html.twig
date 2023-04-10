@@ -11,7 +11,7 @@
 
 {{ include('sidebar.html.twig') }}
 
-<div class="flex-shrink-0 p-9 h-100 col-10 custom-div overflow-auto">
+<div class="flex-shrink-0 p-9 h-100 custom-div overflow-auto col-6 col-sm-8 col-md-9 col-lg-10">
     <h1>{{page_name}}</h1>
 
     <div class="container space-100">
@@ -37,23 +37,23 @@
         <div class="row row-cols-5">
             <h5 class="col margin-20">Adres</h5>
         </div>
-        <div class="row row-cols-5">
-            <div class="col">Kraj:</div>
-            <div class="col">{{country}}</div>
-            <div class="col">Województwo:</div>
-            <div class="col">{{voivodeship}}</div>
+        <div class="row row-cols-5 d-flex flex-wrap">
+            <div class="col" style="min-width: 185px;">Kraj:</div>
+            <div class="col" style="min-width: 185px;">{{country}}</div>
+            <div class="col" style="min-width: 185px;">Województwo:</div>
+            <div class="col" style="min-width: 185px;">{{voivodeship}}</div>
         </div>
-        <div class="row row-cols-5">
-            <div class="col">Miasto:</div>
-            <div class="col">{{city}}</div>
-            <div class="col">Kod pocztowy:</div>
-            <div class="col">{{zipcode}}</div>
+        <div class="row row-cols-5 d-flex flex-wrap">
+            <div class="col" style="min-width: 185px;">Miasto:</div>
+            <div class="col" style="min-width: 185px;">{{city}}</div>
+            <div class="col" style="min-width: 185px;">Kod pocztowy:</div>
+            <div class="col" style="min-width: 185px;">{{zipcode}}</div>
         </div>
-        <div class="row row-cols-5">
-            <div class="col">Ulica:</div>
-            <div class="col">{{street}}</div>
-            <div class="col">Nr mieszkania i budynku:</div>
-            <div class="col">{{buildingNumber}}/{{apartmentNumber}}</div>
+        <div class="row row-cols-5 d-flex flex-wrap">
+            <div class="col" style="min-width: 185px;">Ulica:</div>
+            <div class="col" style="min-width: 185px;">{{street}}</div>
+            <div class="col" style="min-width: 185px;">Nr mieszkania i budynku:</div>
+            <div class="col" style="min-width: 185px;">{{buildingNumber}}/{{apartmentNumber}}</div>
         </div>
         <div class="row row-cols-5">
             <h5 class="col margin-20">Konto</h5>

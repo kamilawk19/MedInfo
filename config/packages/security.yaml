@@ -39,9 +39,11 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: '^/medical-procedure/new', roles: ROLE_DOCTOR }
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
+        ROLE_DOCTOR: ROLE_USER
         ROLE_SUPER_ADMIN: [ ROLE_ADMIN ]
 when@test:
     security:

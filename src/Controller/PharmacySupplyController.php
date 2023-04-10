@@ -11,11 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/pharmacysupply')]
+#[IsGranted('ROLE_USER')]
 class PharmacySupplyController extends AbstractController
 {
     #[Route('/', name: 'app_pharmacy_supply_index', methods: ['GET'])]
     public function index(PharmacySupplyRepository $pharmacySupplyRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('pharmacy_supply/index.html.twig', [
             'pharmacy_supplies' => $pharmacySupplyRepository->findAll(),
             'page_name' => 'Stan apteki oddziałowej',
@@ -25,6 +27,7 @@ class PharmacySupplyController extends AbstractController
     #[Route('/new', name: 'app_pharmacy_supply_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PharmacySupplyRepository $pharmacySupplyRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $pharmacySupply = new PharmacySupply();
         $form = $this->createForm(PharmacySupplyType::class, $pharmacySupply);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class PharmacySupplyController extends AbstractController
     #[Route('/{id}', name: 'app_pharmacy_supply_show', methods: ['GET'])]
     public function show(PharmacySupply $pharmacySupply): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('pharmacy_supply/show.html.twig', [
             'pharmacy_supply' => $pharmacySupply,
             'page_name' => 'Stan - szczegóły',
@@ -54,6 +58,7 @@ class PharmacySupplyController extends AbstractController
     #[Route('/{id}/edit', name: 'app_pharmacy_supply_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, PharmacySupply $pharmacySupply, PharmacySupplyRepository $pharmacySupplyRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $form = $this->createForm(PharmacySupplyType::class, $pharmacySupply);
         $form->handleRequest($request);
 
@@ -73,6 +78,7 @@ class PharmacySupplyController extends AbstractController
     #[Route('/{id}', name: 'app_pharmacy_supply_delete', methods: ['POST'])]
     public function delete(Request $request, PharmacySupply $pharmacySupply, PharmacySupplyRepository $pharmacySupplyRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if ($this->isCsrfTokenValid('delete'.$pharmacySupply->getId(), $request->request->get('_token'))) {
             $pharmacySupplyRepository->remove($pharmacySupply, true);
         }

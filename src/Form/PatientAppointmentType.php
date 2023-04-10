@@ -3,16 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Patitent;
-use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class PatitentType extends AbstractType
+class PatientAppointmentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -42,22 +40,9 @@ class PatitentType extends AbstractType
                     'Mężczyzna' => 'M',
                 ],
             ])
-            ->add('Dialing_Code', null,[
-                'label' => 'Numer kierunkowy',
-            ])
-            ->add('Phone_Number', null,[
-                'label' => 'Telefon',
-            ])
-            ->add('Contact_Dialing_Code', null,[
-                'label' => 'Numer kierunkowy kontaktu',
-            ])
-            ->add('Contact_Phone_Number', null,[
-                'label' => 'Numer telefonu kontaktu',
-            ])
-            ->add('Additional_info', null,[
+            ->add('Additional_info', TextareaType::class,[
                 'label' => 'Szczegóły',
             ])
-            ->add('ID_Address', AddressType::class) 
         ;
     }
 

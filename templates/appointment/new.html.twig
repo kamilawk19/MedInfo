@@ -11,16 +11,21 @@
 
 {% block body %}
 
-    {{ include('sidebar.html.twig') }}
-<div class="flex-shrink-0 p-9 h-100 custom-div overflow-auto col-6 col-sm-8 col-md-9 col-lg-10">
 
+{% if is_granted('ROLE_DOCTOR') %}
+
+    {{ include('sidebar.html.twig') }}
+
+<div class="flex-shrink-0 p-9 h-100 custom-div overflow-auto col-6 col-sm-8 col-md-9 col-lg-10">
 
     <h1>{{page_name}}</h1>
 
-    <a href="{{ path('app_last_pharmacy_supply_check_index') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
+    <a href="{{ path('app_appointment_index') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
 
+    {{ include('appointment/_form.html.twig') }}
 
-    {{ include('last_pharmacy_supply_check/_form.html.twig') }}
 
 </div>
+{% endif %}
+
 {% endblock %}

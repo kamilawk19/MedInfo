@@ -1,4 +1,4 @@
-<div class="flex-shrink-0 p-3 h-100 bg-light col-2 shadow" style="float:left;">
+<div class="flex-shrink-0 p-3 h-100 bg-light shadow overflow-auto d-flex flex-column col-6 col-sm-4 col-md-3 col-lg-2" style="float:left;">
     {% if app.user %}
     {# user is logged in #}
     <a href="/home" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -27,19 +27,21 @@
                 </ul>
             </div>
         </li>
+        {% if is_granted('ROLE_DOCTOR') %}
         <li class="mb-1">
             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#zlecenia-collapse" aria-expanded="false">
                 Zlecenia
             </button>
             <div class="collapse" id="zlecenia-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Zlecenia</a></li>
+                    <li><a href="/medical-procedure" class="link-dark rounded">Zlecenia</a></li>
                 </ul>
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Dodaj zlecenia</a></li>
+                    <li><a href="/medical-procedure/new" class="link-dark rounded">Dodaj zlecenia</a></li>
                 </ul>
             </div>
         </li>
+        {% endif %}
         <li class="mb-1">
             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#zabiegi-collapse" aria-expanded="false">
                 Zaplanowane zabiegi
@@ -49,7 +51,7 @@
                     <li><a href="#" class="link-dark rounded">Kalendarz</a></li>
                 </ul>
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Zaplanowane zabiegi</a></li>
+                    <li><a href="/medical-procedure" class="link-dark rounded">Zaplanowane zabiegi</a></li>
                 </ul>
             </div>
         </li>
@@ -76,5 +78,11 @@
                 </ul>
             </div>
         </li>
+
     </ul>
+    {# Footer #}
+    <div class="mt-auto">
+        <span class="mb-2 mb-md-0 text-muted" style="font-size: 0.7rem;">© 2022 MedInfo. All rights reserved</span>
+    </div>
+    {# End-Footer #}
 </div>

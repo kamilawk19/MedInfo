@@ -14,7 +14,7 @@
     {{ include('sidebar.html.twig') }}
 
 
-<div class="flex-shrink-0 p-9 h-100 col-10 custom-div overflow-auto">
+<div class="flex-shrink-0 p-9 h-100 custom-div overflow-auto col-6 col-sm-8 col-md-9 col-lg-10">
     <h1>{{page_name}}</h1>
 
     <a href="{{ path('app_pharmacy_supply_index') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
@@ -40,11 +40,11 @@
             </tr>
             <tr>
                 <th class="table-primary">Data ważności</th>
-                <td>{{ pharmacy_supply.ExpDate ? pharmacy_supply.ExpDate|date('Y-m-d') : '' }}</td>
+                <td>{{ pharmacy_supply.ExpDate ? pharmacy_supply.ExpDate|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th class="table-primary">Lista N</th>
-                <td>{{ pharmacy_supply.DrugListN ? 'Yes' : 'No' }}</td>
+                <td>{{ pharmacy_supply.DrugListN ? 'Tak' : 'Nie' }}</td>
             </tr>
         </tbody>
     </table>

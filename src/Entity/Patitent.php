@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: PatitentRepository::class)]
 class Patitent
 {
@@ -48,7 +50,7 @@ class Patitent
     #[ORM\Column(length: 9)]
     private ?string $Contact_Phone_Number = null;
 
-    #[ORM\ManyToOne(inversedBy: 'patitents')]
+    #[ORM\ManyToOne(inversedBy: 'patitents', cascade: ['persist', 'remove'])]
     private ?Address $ID_Address = null;
 
     #[ORM\OneToMany(mappedBy: 'ID_Patient', targetEntity: Appointment::class)]

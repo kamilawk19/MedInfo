@@ -22,3 +22,15 @@ a{
 #last_pharmacy_supply_check_Last_Supply_Date{
     float: left;
 }
+#appointment_Start_date{
+    float: left;
+}
+#appointment_Start_time{
+    float: left;
+}
+#appointment_End_date{
+    float: left;
+}
+#appointment_End_time{
+    float: left;
+}

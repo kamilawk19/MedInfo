@@ -39,6 +39,17 @@ class AppointmentRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAllOrderByStart(): array
+   {
+       return $this->createQueryBuilder('a')
+           ->orderBy('a.Start', 'DESC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+  
+
 //    /**
 //     * @return Appointment[] Returns an array of Appointment objects
 //     */

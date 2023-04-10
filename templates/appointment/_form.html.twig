@@ -1,0 +1,89 @@
+{{ form_start(form) }}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Zabieg</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.Has_Happened)}}
+            </div>
+        </div>
+        <div class="row inline-date-div">
+            <div class="col">
+                {{form_row(form.Start)}}
+            </div>
+        </div>
+        <div class="row inline-date-div">
+            <div class="col">
+                {{form_row(form.End)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>Dializa</h5>
+            </div>
+        {% if is_granted('ROLE_DOCTOR') %}
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Weight_Before)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Weight_After)}}
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Blood_Pressure_Before)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Pressure_During)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Blood_Pressure_After)}}
+            </div>
+        </div>
+        {% if is_granted('ROLE_DOCTOR') %}
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Ultrafiltration)}}
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Glycemia)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Dialysis.Additional_Info)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>Dane pacjenta</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_row(form.ID_Patient)}}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <button class="btn btn-primary">{{ button_label|default('Zapisz') }}</button>
+            </div>
+        </div>
+    </div>
+    {{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}

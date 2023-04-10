@@ -17,7 +17,9 @@ class PharmacySupplyType extends AbstractType
             ->add('Description', null, array('label' => 'Opis',))
             ->add('Quantity', null, array('label' => 'Ilość',))
             ->add('Exp_Date', null, array('label' => 'Data ważności',))
-            ->add('Drug_List_N', null, array('label' => 'Lista N',))
+            ->add('Drug_List_N', null, array('label' => 'Lista N','label_attr' => [
+                'class' => 'checkbox-inline',
+            ],))
         ;
     }
 
