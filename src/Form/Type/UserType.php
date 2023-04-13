@@ -39,6 +39,9 @@ class UserType extends AbstractType
                 'first_options'  => ['label' => 'Hasło'],
                 'second_options' => ['label' => 'Powtórz hasło'],
             ))
+            ->add('Licensure_Number', null, array(
+                'label'=>'Numer licencji'
+            ))
 //            ->add('password2', PasswordType::Class, array(
 //                'label' => 'Powtórz hasło',
 //                "mapped" => false,

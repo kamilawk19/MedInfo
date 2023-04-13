@@ -68,19 +68,15 @@ class PatitentControllerTest extends WebTestCase
     {
         $this->markTestIncomplete();
         $fixture = new Patitent();
-        $fixture->setPESEL('My Title');
-        $fixture->setDocument_Number('My Title');
-        $fixture->setDocument_Name('My Title');
-        $fixture->setFirst_Name('My Title');
-        $fixture->setSecond_Name('My Title');
-        $fixture->setLast_Name('My Title');
-        $fixture->setSex('My Title');
-        $fixture->setDialing_Code('My Title');
-        $fixture->setPhone_Number('My Title');
-        $fixture->setContact_Dialing_Code('My Title');
-        $fixture->setContact_Phone_Number('My Title');
+        $fixture->setPESEL('12345678912');
+        $fixture->setFirst_Name('Title');
+        $fixture->setSecond_Name('Title2');
+        $fixture->setLast_Name('MyTitle');
+        $fixture->setSex('M');
+        $fixture->setPhone_Number(123456789);
+        $fixture->setContact_Phone_Number(987654321);
         $fixture->setAdditional_info('My Title');
-        $fixture->setID_Address('My Title');
+        $fixture->setID_Address(1);
 
         $this->repository->save($fixture, true);
 
