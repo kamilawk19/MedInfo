@@ -77,7 +77,6 @@ class AppointmentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            //$appointmentRepository->save($appointment, true);
             return $this->redirectToRoute('app_appointment_index', [], Response::HTTP_SEE_OTHER);
         }
 
