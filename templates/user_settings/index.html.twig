@@ -20,40 +20,40 @@
         </div>
         <div class="row row-cols-5">
             <div class="col">Imię:</div>
-            <div class="col">{{ app.user.getFirstName() }}</div>
+            <div class="col">{{ app.user.getFirstName() ? app.user.getFirstName() : '-' }}</div>
         </div>
         <div class="row row-cols-5">
             <div class="col">Drugie imię:</div>
-            <div class="col">{{ app.user.getSecondName() }}</div>
+            <div class="col">{{ app.user.getSecondName() ? app.user.getSecondName() : "-" }}</div>
         </div>
         <div class="row row-cols-5">
             <div class="col">Nazwisko:</div>
-            <div class="col">{{ app.user.getLastName() }}</div>
+            <div class="col">{{ app.user.getLastName() ? app.user.getLastName() : '-' }}</div>
         </div>
         <div class="row row-cols-5">
             <div class="col">Nr wykonywania zawodu:</div>
-            <div class="col">{{app.user.getLicensureNumber() }}</div>
+            <div class="col">{{app.user.getLicensureNumber() ? app.user.getLicensureNumber() : '-' }}</div>
         </div>
         <div class="row row-cols-5">
             <h5 class="col margin-20">Adres</h5>
         </div>
         <div class="row row-cols-5 d-flex flex-wrap">
             <div class="col" style="min-width: 185px;">Kraj:</div>
-            <div class="col" style="min-width: 185px;">{{country}}</div>
+            <div class="col" style="min-width: 185px;">{{country ? country : '-'}}</div>
             <div class="col" style="min-width: 185px;">Województwo:</div>
-            <div class="col" style="min-width: 185px;">{{voivodeship}}</div>
+            <div class="col" style="min-width: 185px;">{{voivodeship ? voivodeship : '-'}}</div>
         </div>
         <div class="row row-cols-5 d-flex flex-wrap">
             <div class="col" style="min-width: 185px;">Miasto:</div>
-            <div class="col" style="min-width: 185px;">{{city}}</div>
+            <div class="col" style="min-width: 185px;">{{city ? city : '-'}}</div>
             <div class="col" style="min-width: 185px;">Kod pocztowy:</div>
-            <div class="col" style="min-width: 185px;">{{zipcode}}</div>
+            <div class="col" style="min-width: 185px;">{{zipcode ? zipcode : '-'}}</div>
         </div>
         <div class="row row-cols-5 d-flex flex-wrap">
             <div class="col" style="min-width: 185px;">Ulica:</div>
-            <div class="col" style="min-width: 185px;">{{street}}</div>
+            <div class="col" style="min-width: 185px;">{{street ? street : '-'}}</div>
             <div class="col" style="min-width: 185px;">Nr mieszkania i budynku:</div>
-            <div class="col" style="min-width: 185px;">{{buildingNumber}}/{{apartmentNumber}}</div>
+            <div class="col" style="min-width: 185px;">{{buildingNumber ? buildingNumber : '-'}}/{{apartmentNumber ? apartmentNumber : '-'}}</div>
         </div>
         <div class="row row-cols-5">
             <h5 class="col margin-20">Konto</h5>
@@ -72,7 +72,7 @@
                 <a href="#"><button type="button" class="btn btn-link px-4 me-md-2">Zmień hasło</button></a>
             </div>
             <div class="col-2">
-                <a href="#"><button type="button" class="btn btn-link px-4 me-md-2" style="background-color: #6082B6 !important;">Zmień dane</button></a>
+                <a href="/user/settings/change-personal-data"><button type="button" class="btn btn-link px-4 me-md-2" style="background-color: #6082B6 !important;">Zmień dane</button></a>
             </div>
             <div class="col-2"></div>
         </div>

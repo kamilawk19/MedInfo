@@ -69,6 +69,7 @@
                 {{form_row(form.ID_Dialysis.Additional_Info)}}
             </div>
         </div>
+        {% if is_granted('ROLE_DOCTOR') %}
         <div class="row">
             <div class="col">
                 <h5>Dane pacjenta</h5>
@@ -79,11 +80,34 @@
                 {{form_row(form.ID_Patient)}}
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h5>Leki</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col-sm-8 col-sm-offset-2" id="exp_list" data-prototype="{{ form_widget(form.ID_Dialysis.medicines.vars.prototype)|e('html_attr') }}">
+                    {% for medicine in form.ID_Dialysis.medicines %}
+                         <div class="panel panel-warning">
+                    
+                    <div class="panel-body">
+                        {{ form_row(medicine, {'value': medicine.vars.value}) }}
+                    </div>
+                </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {# {{form_row(medicine.FK_Medicine, {'attr': {'value': medicine.FK_Medicine.vars.value}}) }} #}
+
         <div class="row justify-content-center">
             <div class="col-7">
                 <button class="btn btn-primary">{{ button_label|default('Zapisz') }}</button>
             </div>
         </div>
     </div>
+    
     {{ form_row(form._token) }}
 {{ form_end(form, {'render_rest': false}) }}

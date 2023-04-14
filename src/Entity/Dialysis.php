@@ -43,7 +43,7 @@ class Dialysis
     #[ORM\OneToOne(mappedBy: 'ID_Dialysis', cascade: ['persist', 'remove'])]
     private ?Appointment $appointment = null;
 
-    #[ORM\OneToMany(mappedBy: 'ID_Dialysis', targetEntity: Medicines::class)]
+    #[ORM\OneToMany(mappedBy: 'ID_Dialysis', targetEntity: Medicines::class, cascade: ['persist', 'remove'])]
     private Collection $medicines;
 
     public function __construct()
@@ -54,6 +54,10 @@ class Dialysis
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function __toString() {
+        return (string) $this->getId();
     }
 
     public function getWeightBefore(): ?string

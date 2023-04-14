@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Appointment;
 use App\Entity\Dialysis;
+use App\Entity\Medicines;
 use App\Form\AppointmentType;
 use App\Repository\AppointmentRepository;
 use App\Repository\DialysisRepository;
+use App\Repository\MedicinesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 #[Route('/medical-procedure')]
 #[IsGranted('ROLE_USER')]
@@ -58,16 +61,23 @@ class AppointmentController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_appointment_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Appointment $appointment, AppointmentRepository $appointmentRepository): Response
+    public function edit(Request $request, Appointment $appointment, AppointmentRepository $appointmentRepository, EntityManagerInterface $em): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $form = $this->createForm(AppointmentType::class, $appointment);
+        
+        $dialysisId = $appointment->getIDDialysis()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $medicines = $em->getRepository(Medicines::class)->findBy(['ID_Dialysis' => $dialysisId]);
+
+        
+        $form = $this->createForm(AppointmentType::class, $appointment, [
+            'medicines' => $medicines,
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $appointmentRepository->save($appointment, true);
-
+            //$appointmentRepository->save($appointment, true);
             return $this->redirectToRoute('app_appointment_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -75,6 +85,7 @@ class AppointmentController extends AbstractController
             'appointment' => $appointment,
             'form' => $form,
             'page_name' => 'Zabiegi - edycja',
+            'med' => $medicines
         ]);
     }
 

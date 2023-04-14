@@ -11,24 +11,17 @@
 
 {% block body %}
 
-    {{ include('sidebar.html.twig') }}
+{{ include('sidebar.html.twig') }}
 
 <div class="flex-shrink-0 p-9 h-100 custom-div overflow-auto col-6 col-sm-8 col-md-9 col-lg-10">
+
     <h1>{{page_name}}</h1>
 
-        <a href="{{ path('app_appointment_index') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
+     <a href="{{ path('app_user_settings') }}"><h6><i class="bi bi-arrow-left"></i> Powrót</h6></a>
 
-    {{ include('appointment/_form.html.twig', {'button_label': 'Zapisz'}) }}
+    {{ include('user_settings/_form.html.twig') }}
 
-    {% if is_granted('ROLE_DOCTOR') %}
-    <div class="container fit-delete-btn">
-        <div class="row justify-content-center">
-            <div class="col-7">
-                {{ include('appointment/_delete_form.html.twig') }}
-            </div>
-        </div>
-    </div>
-    {% endif %}
 <br>
+
 </div>
 {% endblock %}

@@ -46,7 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $is_active = null;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
+    #[ORM\ManyToOne(inversedBy: 'users', cascade: ['persist', 'remove'])]
     private ?Address $ID_Address = null;
 
     #[ORM\OneToMany(mappedBy: 'ID_Controller', targetEntity: LastPharmacySupplyCheck::class)]

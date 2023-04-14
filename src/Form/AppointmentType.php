@@ -31,7 +31,9 @@ class AppointmentType extends AbstractType
                 'hour' => 'Godzina', 'minute' => 'Minuta', 'second' => 'Sekunda',],
             ])
             //->add('ID_Patient', PatientAppointmentType::class)
-            ->add('ID_Dialysis', DialysisType::class)
+            ->add('ID_Dialysis', DialysisType::class, [
+                'medicines' => $options['medicines'],
+            ])
             ->add('ID_Patient', EntityType::class,[
                 'class' => Patitent::class,
                 'choice_label' => function (?Patitent $p) {
@@ -46,6 +48,7 @@ class AppointmentType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Appointment::class,
+            'medicines' => null,
         ]);
     }
 }

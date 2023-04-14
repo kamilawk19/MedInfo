@@ -23,8 +23,8 @@ class Medicines
     #[ORM\JoinColumn(nullable: false)]
     private ?Dialysis $ID_Dialysis = null;
 
-    #[ORM\ManyToOne(inversedBy: 'medicines')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'medicines', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?PharmacySupply $FK_Medicine = null;
 
     public function getId(): ?int

@@ -1,0 +1,71 @@
+{{ form_start(form) }}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>Dane osobowe</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.First_Name)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Second_Name)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.Last_Name)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5>Adres</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.Country)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.Voivodeship)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.City)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.ZIP_Code)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.Street)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.Building_Number)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_row(form.ID_Address.Apartment_Number)}}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <button class="btn btn-primary">{{ button_label|default('Zapisz') }}</button>
+        </div>
+    </div>
+</div>
+{{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}
